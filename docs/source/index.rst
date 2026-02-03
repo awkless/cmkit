@@ -7,3 +7,4 @@ cmkit documentation
 
    Doxygen
    CompileFlags
+   StaticAnalysis
