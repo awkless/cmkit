@@ -1,4 +1,4 @@
-WarningFlags
+CompileFlags
 ============
 
 Utilities to manage compilation flags.
@@ -24,23 +24,23 @@ build. Caller can choose to treat warnings as errors or not.
 Arguments
 ---------
 
-:keyword interface_target:
- Library interface target to set warnings flags on.
+**interface_target**
+  Library interface target to set warnings flags on.
 
 Keyword Arguments
 -----------------
 
-:keyword AS_ERRORS:
- If "TRUE" then all warnings will be treated as errors.
+**AS_ERRORS**
+   If "TRUE" then all warnings will be treated as errors.
 
-:keyword MSVC_WARNINGS:
- Warning flags specific for MSVC compiler platform.
+**MSVC_WARNINGS**
+   Warning flags specific for MSVC compiler platform.
 
-:keyword CLANG_WARNINGS:
- Warning flags specific for CLANG compiler platform.
+**CLANG_WARNINGS**
+   Warning flags specific for CLANG compiler platform.
 
-:keyword GNU_WARNINGS:
- Warning flags specific for GNU compiler platform.
+**GNU_WARNINGS**
+   Warning flags specific for GNU compiler platform.
 
 Examples
 --------

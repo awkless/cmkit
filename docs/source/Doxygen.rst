@@ -23,14 +23,14 @@ file.
 Keyword Arguments
 -----------------
 
-:keyword DOXYFILE_IN:
- Path to the input template Doxyfile.
+**DOXYFILE_IN**
+    Path to the input template Doxyfile.
 
-:keyword DOXYFILE_OUT:
- Path where the configured Doxyfile will be written.
+**DOXYFILE_OUT**
+    Path where the configured Doxyfile will be written.
 
-:keyword DOXYGEN_INDEX:
- Path to check if generated index file changed to update documentation.
+**DOXYGEN_INDEX**
+    Path to check if generated index file changed to update documentation.
 
 Examples
 --------

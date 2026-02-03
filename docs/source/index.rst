@@ -6,3 +6,4 @@ cmkit documentation
    :caption: Contents:
 
    Doxygen
+   CompileFlags
