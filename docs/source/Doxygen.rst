@@ -4,54 +4,55 @@ Doxygen
 Utilities to manage in-source documentation generation through the Doxygen
 command.
 
-.. cmake:command:: doxygen_generate
+doxygen_generate
+^^^^^^^^^^^^^^^^
 
-   Use Doxygen to generate documentation using a template Doxyfile.
+.. code-block:: cmake
 
-   Only generates documentation when updates are made to the generated index
-   file.
+  doxygen_generate(
+    DOXYFILE_IN  <path>
+    DOXYFILE_OUT <path>
+    DOXYGEN_INDEX <path>
+  )
 
-   .. code-block:: cmake
+Use Doxygen to generate documentation using a template Doxyfile.
 
-      doxygen_generate(
-        DOXYFILE_IN  <path>
-        DOXYFILE_OUT <path>
-        DOXYGEN_INDEX <path>
-      )
+Only generates documentation when updates are made to the generated index
+file.
 
-   Keyword Arguments
-   -----------------
+Keyword Arguments
+-----------------
 
-   :keyword DOXYFILE_IN:
-     Path to the input template Doxyfile.
+:keyword DOXYFILE_IN:
+ Path to the input template Doxyfile.
 
-   :keyword DOXYFILE_OUT:
-     Path where the configured Doxyfile will be written.
+:keyword DOXYFILE_OUT:
+ Path where the configured Doxyfile will be written.
 
-   :keyword DOXYGEN_INDEX:
-     Path to check if generated index file changed to update documentation.
+:keyword DOXYGEN_INDEX:
+ Path to check if generated index file changed to update documentation.
 
-   Examples
-   --------
+Examples
+--------
 
-   Assume that the following settings have been set in a Doxyfile template
-   located at ``docs/Doxyfile.in``:
+Assume that the following settings have been set in a Doxyfile template
+located at ``docs/Doxyfile.in``:
 
-   .. code-block:: text
+.. code-block:: text
 
-      PROJECT_NAME     = "@PROJECT_NAME@"
-      PROJECT_NUMBER   = "@PROJECT_VERSION@"
-      PROJECT_BRIEF    = "@PROJECT_DESCRIPTION@"
-      OUTPUT_DIRECTORY = @CMAKE_CURRENT_BINARY_DIR@/docs/
-      INPUT            = @CMAKE_SOURCE_DIR@/include/
-      RECURSIVE        = YES
+  PROJECT_NAME     = "@PROJECT_NAME@"
+  PROJECT_NUMBER   = "@PROJECT_VERSION@"
+  PROJECT_BRIEF    = "@PROJECT_DESCRIPTION@"
+  OUTPUT_DIRECTORY = @CMAKE_CURRENT_BINARY_DIR@/docs/
+  INPUT            = @CMAKE_SOURCE_DIR@/include/
+  RECURSIVE        = YES
 
-   Now call ``doxygen_generate`` using the Doxyfile template:
+Now call ``doxygen_generate`` using the Doxyfile template:
 
-   .. code-block:: cmake
+.. code-block:: cmake
 
-      doxygen_generate(
-        DOXYFILE_IN "${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile.in"
-        DOXYFILE_OUT "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
-        DOYXGEN_INDEX "${CMAKE_CURRENT_BINARY_DIR}/docs/html/index.html"
-      )
+  doxygen_generate(
+    DOXYFILE_IN "${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile.in"
+    DOXYFILE_OUT "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
+    DOYXGEN_INDEX "${CMAKE_CURRENT_BINARY_DIR}/docs/html/index.html"
+  )
