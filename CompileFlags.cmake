@@ -12,15 +12,11 @@
 # interface_target
 #     Library interface target to set warnings flags on.
 #
-# Options
-# -------
-#
-# AS_ERRORS
-#     If "TRUE" then all warnings will be treated as errors.
-#
 # Keyword Arguments
 # -----------------
 #
+# AS_ERRORS
+#     If "TRUE" then all warnings will be treated as errors.
 # MSVC_WARNINGS
 #     Warning flags specific for MSVC compiler platform.
 # CLANG_WARNINGS
@@ -47,12 +43,18 @@ function(set_warning_flags interface_target)
             set(target_warnings ${ARG_MSVC_WARNINGS})
             set(error_flags "/WX")
         endif()
-    elseif(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
+    elseif(
+        CMAKE_CXX_COMPILER_ID MATCHES ".*Clang"
+        OR CMAKE_C_COMPILER_ID MATCHES ".*Clang"
+    )
         if(DEFINED ARG_CLANG_WARNINGS)
             set(target_warnings ${ARG_CLANG_WARNINGS})
             set(error_flags "-Werror")
         endif()
-    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    elseif(
+        CMAKE_CXX_COMPILER_ID STREQUAL "GNU"
+        OR CMAKE_C_COMPILER_ID STREQUAL "GNU"
+    )
         if(DEFINED ARG_GNU_WARNINGS)
             set(target_warnings ${ARG_GNU_WARNINGS})
             set(error_flags "-Werror")
