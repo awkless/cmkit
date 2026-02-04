@@ -54,5 +54,5 @@ Now call ``doxygen_generate`` using the Doxyfile template:
   doxygen_generate(
     DOXYFILE_IN "${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile.in"
     DOXYFILE_OUT "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile"
-    DOYXGEN_INDEX "${CMAKE_CURRENT_BINARY_DIR}/docs/html/index.html"
+    DOXYGEN_INDEX "${CMAKE_CURRENT_BINARY_DIR}/docs/html/index.html"
   )
