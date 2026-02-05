@@ -21,10 +21,10 @@ function(doxygen_generate)
     set(multi_value_keywords "")
     cmake_parse_arguments(
         ARG
-	"${options}"
-	"${one_value_keywords}"
-	"${multi_value_keywords}"
-	${ARGN}
+        "${options}"
+        "${one_value_keywords}"
+        "${multi_value_keywords}"
+        ${ARGN}
     )
 
     if(NOT DEFINED ARG_DOXYFILE_IN)
@@ -32,27 +32,28 @@ function(doxygen_generate)
     endif()
 
     if(NOT DEFINED ARG_DOXYFILE_OUT)
-	message(FATAL_ERROR "No path to output template Doxyfile config")
+        message(FATAL_ERROR "No path to output template Doxyfile config")
     endif()
 
     if(NOT DEFINED ARG_DOXYGEN_INDEX)
-	message(FATAL_ERROR "No path to generated index")
+        message(FATAL_ERROR "No path to generated index")
     endif()
 
     find_package(Doxygen)
     if(NOT DEFINED DOXYGEN_FOUND)
-	message(FATAL_ERROR "Cannot locate Doxygen, please install it")
+        message(FATAL_ERROR "Cannot locate Doxygen, please install it")
     endif()
 
     configure_file("${ARG_DOXYFILE_IN}" "${ARG_DOXYFILE_OUT}" @ONLY)
 
     message(STATUS "Start Doxygen build")
     add_custom_target(
-	doxygen ALL
-	COMMAND ${DOXYGEN_EXECUTABLE} ${ARG_DOXYFILE_OUT}
-	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-	COMMENT "Generate API documentation with Doxygen"
-	VERBATIM
+        doxygen
+        ALL
+        COMMAND ${DOXYGEN_EXECUTABLE} ${ARG_DOXYFILE_OUT}
+        WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+        COMMENT "Generate API documentation with Doxygen"
+        VERBATIM
     )
 
     add_custom_target(Doxygen ALL DEPENDS "${ARG_DOXYGEN_INDEX}")

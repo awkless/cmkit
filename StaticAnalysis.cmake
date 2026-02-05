@@ -13,7 +13,10 @@
 #     List of C/C++ files to run clang-tidy on.
 function(lint_with_clang_tidy)
     if(NOT ARGN)
-        message(AUTHOR_WARNING "lint_with_clang_tidy called with no files. Skipping target creation")
+        message(
+            AUTHOR_WARNING
+            "lint_with_clang_tidy called with no files. Skipping target creation"
+        )
         return()
     endif()
 
@@ -25,7 +28,7 @@ function(lint_with_clang_tidy)
         run_clang_tidy
         ALL
         COMMAND ${CLANG_TIDY_EXE} "-p" "${CMAKE_BINARY_DIR}" ${ARGN}
-	DEPENDS "${COMPILE_COMMANDS_PATH}"
+        DEPENDS "${COMPILE_COMMANDS_PATH}"
         WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
         COMMENT "Run clang-tidy analysis"
         VERBATIM

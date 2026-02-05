@@ -4,10 +4,10 @@
 cmake_minimum_required(VERSION 3.21)
 
 project(
-  "doxygen_example"
-  VERSION 0.1.0
-  DESCRIPTION "Example use of Doxygen utilities"
-  LANGUAGES C
+    "doxygen_example"
+    VERSION 0.1.0
+    DESCRIPTION "Example use of Doxygen utilities"
+    LANGUAGES C
 )
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../../")
@@ -20,4 +20,7 @@ doxygen_generate(
 )
 
 add_executable(mysort)
-target_sources(mysort PRIVATE "${CMAKE_SOURCE_DIR}/src/sort.c" "${CMAKE_SOURCE_DIR}/src/main.c")
+target_sources(
+    mysort
+    PRIVATE "${CMAKE_SOURCE_DIR}/src/sort.c" "${CMAKE_SOURCE_DIR}/src/main.c"
+)
