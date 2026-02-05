@@ -30,3 +30,21 @@ Examples
      "${CMAKE_SOURCE_DIR}/src/main.cpp"
      "${CMAKE_SOURCE_DIR}/src/utils.cpp"
    )
+
+lint_with_iwyu
+^^^^^^^^^^^^^^
+
+Lint with include-what-you-use.
+
+Arguments
+---------
+
+**${ARGN}**
+   List of options to pass to include-what-you-use.
+
+Examples
+--------
+
+.. code-block:: cmake
+
+   lint_with_iwyu(-Xiwyu --error_always)
