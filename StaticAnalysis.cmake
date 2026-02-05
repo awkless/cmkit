@@ -34,3 +34,16 @@ function(lint_with_clang_tidy)
         VERBATIM
     )
 endfunction()
+
+# Lint with include-what-you-use.
+#
+# Arguments
+# ---------
+#
+# ${ARGN}
+#    List of options to pass to include-what-you-use.
+function(lint_with_iwyu)
+    find_program(iwyu_exe NAMES include-what-you-use REQUIRED)
+    set(CMAKE_C_INCLUDE_WHAT_YOU_USE "${iwyu_exe}" ${ARGN})
+    set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE "${iwyu_exe}" ${ARGN})
+endfunction()
