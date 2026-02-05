@@ -17,7 +17,8 @@ set(mysort_src
     "${CMAKE_SOURCE_DIR}/src/sort.c"
     "${CMAKE_SOURCE_DIR}/src/main.c"
 )
-lint_with_clang_tidy(${mysort_src})
+lint_with_clang_tidy("${mysort_src}")
+lint_with_iwyu(-Xiwu --error_always)
 
 add_executable(mysort)
-target_sources(mysort PRIVATE ${mysort_src})
+target_sources(mysort PRIVATE "${mysort_src}")
